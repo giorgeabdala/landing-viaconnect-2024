@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id         String   @id @default(uuid())
+  name       String
+  email      String
+  whatsapp   String
+  occupation String
+  birthday   DateTime
+  createdAt  DateTime @default(now())
+  eventId    String
+  event      Event    @relation(fields: [eventId], references: [id])
+
+  @@index([eventId], map: "User_eventId_fkey")
+}
+
+model Event {
+  id    String   @id @default(uuid())
+  name  String
+  date  DateTime
+  users User[]
+  swags Swag[]
+}
+
+model Swag {
+  id        String   @default(uuid())
+  name      String
+  phone     String
+  email     String
+  company   String
+  position  String
+  feedback  String   @db.Text
+  eventId   String
+  event     Event    @relation(fields: [eventId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@id([eventId, phone])
+  @@index([eventId], map: "Swag_eventId_fkey")
+}

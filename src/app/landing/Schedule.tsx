@@ -14,13 +14,13 @@ export default function Schedule () {
                 <div className="flex text-white items-center justify-center font-background opacity-10 font-black text-5xl md:text-8xl lg:text-9xl">
                     <h1>Imperdível...</h1>
                 </div>
-                <p className="mt-4">Confira as palestras exclusivas da Polkadot Brasil que vão rolar no Connect Week Summit 2024:</p>
+                <p className="mt-4 text-xl md:text-2xl">Confira as palestras exclusivas da Polkadot Brasil que vão rolar no Connect Week Summit 2024:</p>
 
                 <Workshops />
 
-                <div className="flex flex-col mt-8 font-body gap-4">
+                <div className="flex flex-col mt-8 font-body gap-4 text-xl md:text-2xl">
 
-                    <p>
+                    <p className="hidden md:block">
                         Não perca essa oportunidade! </p>
 
                     <p>Confira

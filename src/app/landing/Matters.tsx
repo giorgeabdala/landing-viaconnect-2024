@@ -28,11 +28,13 @@ export default function Matters() {
 
                 <div className=" md:hidden ">
                     <div className="text-xl ">
-                        <p>INOVAÇÃO PARA TODOS</p>
+                        <p>INOVAÇÃO </p>
+                        <p> </p>
+                        <p>PARA TODOS</p>
                     </div>
-                    <div className="text-2xl mt-8">
+                   {/* <div className="text-2xl mt-8">
                         <p>mais de 200 palestrantes e 100 expositores.</p>
-                    </div>
+                    </div>*/}
                 </div>
             </div>
         </div>

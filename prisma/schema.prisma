@@ -3,8 +3,9 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgresql"
   url          = env("DATABASE_URL")
+  directUrl    = env("DIRECT_URL")
   relationMode = "prisma"
 }
 
@@ -19,7 +20,7 @@ model User {
   eventId    String
   event      Event    @relation(fields: [eventId], references: [id])
 
-  @@index([eventId], map: "User_eventId_fkey")
+  @@index([eventId], map: "User_eventId_index") // Changed the name to be unique
 }
 
 model Event {
@@ -43,5 +44,5 @@ model Swag {
   createdAt DateTime @default(now())
 
   @@id([eventId, phone])
-  @@index([eventId], map: "Swag_eventId_fkey")
+  @@index([eventId], map: "Swag_eventId_index") // Changed the name to be unique
 }
